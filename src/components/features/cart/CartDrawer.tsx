@@ -39,7 +39,7 @@ const CartDrawer = () => {
 
 	return (
 		<Drawer direction="right">
-			<DrawerTrigger>
+			<DrawerTrigger asChild>
 				<Button variant="outline" size="icon" className="relative">
 					<ShoppingCart className="h-5 w-5" />
 

@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import React, { type PropsWithChildren } from "react";
-import ReactScan from "./ReactScan";
+// import ReactScan from "./ReactScan";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -21,7 +21,7 @@ const Providers = (props: PropsWithChildren) => {
 	return (
 		<NuqsAdapter>
 			<QueryClientProvider client={queryClient}>
-				<ReactScan />
+				{/* <ReactScan /> */}
 				{children}
 				<ReactQueryDevtools initialIsOpen={false} />
 			</QueryClientProvider>

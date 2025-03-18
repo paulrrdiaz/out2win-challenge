@@ -17,8 +17,10 @@ import { ChevronLeft, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useReward } from "react-rewards";
 
 const CartDetails = () => {
+	const { reward } = useReward("checkout-button", "confetti");
 	const items = useCartStore((state) => state.items);
 	const cart = Object.values(items);
 	const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -201,7 +203,12 @@ const CartDetails = () => {
 							</div>
 						</CardContent>
 						<CardFooter className="flex flex-col gap-4">
-							<Button className="w-full" size="lg">
+							<Button
+								onClick={reward}
+								className="w-full"
+								id="checkout-button"
+								size="lg"
+							>
 								Proceed to Checkout
 							</Button>
 							<div className="text-sm text-center text-muted-foreground">
