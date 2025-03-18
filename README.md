@@ -1,5 +1,8 @@
 # out2win challenge
 
+## Demo
+[https://out2win-challenge.vercel.app/](https://out2win-challenge.vercel.app/)
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -15,13 +18,14 @@ To set up the project, follow these steps:
     git clone https://github.com/paulrrdiaz/out2win-challenge.git
     cd out2win-challenge
     ```
+2. Rename `.env.example` to `.env.local`
 
-2. Install the dependencies:
+3. Install the dependencies:
     ```bash
     npm install
     ```
 
-3. Start the development server:
+4. Start the development server:
     ```bash
     npm run dev
     ```
@@ -69,3 +73,17 @@ The `lib/error` module can be improved by integrating error logging services lik
 
 ### services/http
 This module using an Axios instance for making HTTP requests. In the future, we can add interceptors to manage authentication tokens, handle errors, or log request and response data. This approach centralizes the logic for handling HTTP requests, making the codebase cleaner and more maintainable.
+
+## TODOs
+
+### Vitest / Storybook
+Unit and functional tests using Vitest, also visual tests and documentation using Storybook
+
+### Cypress
+Fastest way to tests main functionalities
+
+### Husky and lint-staged
+For adding constrains to commits
+
+### GitHub Actions
+We need to set up GitHub Actions to automate the process of running tests and building the application.
