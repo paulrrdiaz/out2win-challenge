@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# out2win challenge
 
-## Getting Started
+## Prerequisites
 
-First, run the development server:
+Before you begin, ensure you have met the following requirements:
+- You have installed Node.js and npm.
+- You have a code editor, uch as Visual Studio Code.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To set up the project, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/paulrrdiaz/out2win-challenge.git
+    cd out2win-challenge
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+## Dev Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Biome (https://biomejs.dev/)
+Improve performance for formatting during dev stage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### nuqs (https://nuqs.47ng.com/)
+nuqs is used for managing query parameters in the URL.
 
-## Deploy on Vercel
+### TanStack Query (https://tanstack.com/query/latest)
+Data fetching tool, helps for speed up the critical rendering path because caching
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### TanStack Table (https://tanstack.com/table/latest)
+For building flexible and customizable tables.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Zustand (https://zustand.docs.pmnd.rs/)
+Zustand is a small, fast, and scalable state management library.
+
+### shadcn (https://ui.shadcn.com/)
+shadcn is a component library that provides a set of reusable and customizable UI components.
+
+### react-scan (https://react-scan.com/)
+for detecting bottleneck and unnecessary re-renders
+
+## Product Notes
+
+### Server-Side Pagination
+Server-side pagination is used for the table to handle large datasets efficiently. By fetching only the required data for the current page from the server, we reduce the amount of data transferred and improve the performance of the application. This approach also ensures that the data displayed is always up-to-date, as it is fetched directly from the server.
+
+### Zustand vs. Context API
+Zustand is chosen over the Context API for state management due to its simplicity and performance. Zustand provides a more intuitive API for managing global state and avoids the boilerplate code required by the Context API. It also offers better performance by minimizing re-renders and providing a more efficient way to manage state updates.
+
+### Server-Side Rendering (SSR) vs. Static Generation (SSG)
+Server-Side Rendering (SSR) is used for product pages instead of Static Generation (SSG) because the product data is dynamic and can change frequently. SSR ensures that the latest data is always displayed to the user by fetching it at request time. This approach is more suitable for applications with a large number of products that can change frequently, as it avoids the need to regenerate static pages whenever the data changes.
+Another solution for managing dynamic product data is to integrate a headless CMS like Sanity. A headless CMS provides a flexible and scalable way to manage content, allowing for easy updates and content management. By using a headless CMS, we can create hooks to fetch product data and generate product pages dynamically. This approach combines the benefits of SSR with the flexibility of a CMS, making it easier to manage and update product data.
+
+### Schemas
+We can use Zod for schema validation to ensures that the data conforms to the expected structure, reducing the likelihood of runtime errors and improving the overall robustness of the application.
+
+### lib/error
+The `lib/error` module can be improved by integrating error logging services like Sentry or Datadog.
+
+### services/http
+This module using an Axios instance for making HTTP requests. In the future, we can add interceptors to manage authentication tokens, handle errors, or log request and response data. This approach centralizes the logic for handling HTTP requests, making the codebase cleaner and more maintainable.
